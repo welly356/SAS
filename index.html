@@ -1,1 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SAS Charity Nepal — सानो कदम, ठूलो परिवर्तन</title>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Nepali:ital@0;1&family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+:root {
+  --red: #C0392B;
+  --red-deep: #922B21;
+  --red-pale: #FDEDEC;
+  --red-muted: #E8B4B0;
+  --blue: #1A5276;
+  --saffron: #E67E22;
+  --saffron-pale: #FDEBD0;
+  --white: #FDFCFA;
+  --cream: #F8F4EE;
+  --ink: #1A1209;
+  --ink-mid: #4A3F30;
+  --ink-soft: #9E8E78;
+  --border: rgba(26,18,9,0.1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Crimson Pro', serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.8;
+  overflow-x: hidden;
+}
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 3.5rem;
+  background: rgba(26,18,9,0.93);
+  backdrop-filter: blur(16px);
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.nav-flag {
+  width: 26px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.nav-name {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: 1.1rem;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.nav-name span {
+  color: var(--red-muted);
+  font-size: 0.75rem;
+  display: block;
+  font-family: 'Crimson Pro', serif;
+  letter-spacing: 0.06em;
+}
+
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  text-decoration: none;
+  color: rgba(255,255,255,0.55);
+  font-size: 0.88rem;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--red-muted); }
+
+.nav-fb {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.45rem;
+  background: #1877F2 !important;
+  color: #fff !important;
+  padding: 0.42rem 1rem !important;
+  border-radius: 2rem !important;
+  font-size: 0.8rem !important;
+  font-family: 'Crimson Pro', serif !important;
+  transition: opacity 0.2s !important;
+}
+.nav-fb:hover { opacity: 0.85 !important; }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  background: var(--ink);
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 7rem 3.5rem 4rem;
+  overflow: hidden;
+}
+
+.hero-bg-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(192,57,43,0.07) 0px,
+    rgba(192,57,43,0.07) 1px,
+    transparent 1px,
+    transparent 42px
+  );
+}
+
+.hero-mandala {
+  position: absolute;
+  right: -8%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: min(52vw, 580px);
+  opacity: 0.07;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(192,57,43,0.22);
+  border: 0.5px solid rgba(192,57,43,0.38);
+  color: var(--red-muted);
+  padding: 0.32rem 1rem;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.07em;
+  margin-bottom: 2rem;
+  font-family: 'DM Mono', monospace;
+}
+
+.hero h1 {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: clamp(2.8rem, 6vw, 5.2rem);
+  line-height: 1.2;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.hero h1 .accent { color: var(--red-muted); }
+
+.hero-sub {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: 1.12rem;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 0.4rem;
+}
+
+.hero-en {
+  font-style: italic;
+  font-size: 0.98rem;
+  color: rgba(255,255,255,0.28);
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+.btn-fb {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #1877F2;
+  color: #fff;
+  padding: 0.85rem 2rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: 'Tiro Devanagari Nepali', serif;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.btn-fb:hover { transform: translateY(-2px); opacity: 0.9; }
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0.5px solid rgba(255,255,255,0.22);
+  color: rgba(255,255,255,0.65);
+  padding: 0.85rem 1.8rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  text-decoration: none;
+  font-family: 'Tiro Devanagari Nepali', serif;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--red-muted); color: var(--red-muted); }
+
+.hero-scroll-hint {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 3.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255,255,255,0.25);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  font-family: 'DM Mono', monospace;
+}
+.hero-scroll-hint::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 36px;
+  background: rgba(255,255,255,0.18);
+}
+
+/* SECTIONS */
+section { padding: 6rem 3.5rem; }
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.7rem;
+}
+
+.heading-ne {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: clamp(2rem, 3.5vw, 2.9rem);
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 0.35rem;
+}
+
+.heading-en {
+  font-style: italic;
+  font-size: 0.97rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+}
+
+.body-text {
+  font-size: 1.02rem;
+  color: var(--ink-mid);
+  line-height: 1.85;
+  max-width: 560px;
+}
+
+/* ABOUT */
+.about {
+  background: var(--white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.about-card-stack { position: relative; height: 340px; }
+
+.about-card {
+  position: absolute;
+  background: var(--cream);
+  border: 0.5px solid var(--border);
+  border-radius: 1.2rem;
+  padding: 1.4rem 1.6rem;
+  width: 84%;
+}
+
+.about-card:nth-child(1) { top: 0; left: 0; transform: rotate(-2.5deg); z-index: 1; }
+.about-card:nth-child(2) { top: 70px; left: 7%; z-index: 2; background: var(--red-pale); border-color: var(--red-muted); }
+.about-card:nth-child(3) { top: 155px; left: 3%; z-index: 3; background: var(--white); }
+
+.about-card-icon { font-size: 1.5rem; margin-bottom: 0.45rem; }
+
+.about-card-ne {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+
+.about-card-en { font-size: 0.8rem; color: var(--ink-soft); font-style: italic; }
+
+/* HOW */
+.how { background: var(--cream); }
+.how-header { margin-bottom: 4rem; }
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  max-width: 960px;
+  position: relative;
+}
+
+.steps::before {
+  content: '';
+  position: absolute;
+  top: 1.9rem;
+  left: calc(16.66% + 1.8rem);
+  right: calc(16.66% + 1.8rem);
+  height: 1px;
+  background: repeating-linear-gradient(to right, var(--red-muted) 0, var(--red-muted) 6px, transparent 6px, transparent 14px);
+}
+
+.step { text-align: center; padding: 0 1.5rem; }
+
+.step-num {
+  width: 3.8rem;
+  height: 3.8rem;
+  background: var(--red);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: 1.35rem;
+  margin: 0 auto 1.4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.step h3 {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: 1.12rem;
+  color: var(--ink);
+  margin-bottom: 0.25rem;
+}
+
+.step .step-en { font-style: italic; font-size: 0.82rem; color: var(--ink-soft); margin-bottom: 0.7rem; }
+.step p { font-size: 0.9rem; color: var(--ink-mid); line-height: 1.7; }
+
+/* DONATE */
+.donate { background: var(--ink); }
+.donate .eyebrow { color: var(--red-muted); }
+.donate .heading-ne { color: #fff; }
+.donate .heading-en { color: rgba(255,255,255,0.32); }
+.donate .body-text { color: rgba(255,255,255,0.58); max-width: 100%; }
+
+.donate-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: 3.5rem;
+  margin-top: 3rem;
+  align-items: start;
+}
+
+.donate-categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.donate-cat {
+  background: rgba(255,255,255,0.05);
+  border: 0.5px solid rgba(255,255,255,0.09);
+  border-radius: 0.9rem;
+  padding: 1.15rem;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: default;
+}
+
+.donate-cat:hover {
+  border-color: rgba(192,57,43,0.45);
+  background: rgba(192,57,43,0.08);
+}
+
+.donate-cat-icon { font-size: 1.7rem; margin-bottom: 0.5rem; }
+
+.donate-cat h4 {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: 0.92rem;
+  color: #fff;
+  margin-bottom: 0.12rem;
+}
+
+.donate-cat .cat-en { font-size: 0.76rem; color: rgba(255,255,255,0.32); font-style: italic; }
+
+.donate-info {
+  background: rgba(192,57,43,0.13);
+  border: 0.5px solid rgba(192,57,43,0.28);
+  border-radius: 1.2rem;
+  padding: 2rem;
+}
+
+.donate-info h3 {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: 1.25rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.donate-steps { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.5rem; }
+
+.donate-steps li {
+  display: flex;
+  gap: 0.9rem;
+  align-items: flex-start;
+}
+
+.d-num {
+  width: 22px;
+  height: 22px;
+  background: var(--red);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  flex-shrink: 0;
+  margin-top: 3px;
+  font-family: 'DM Mono', monospace;
+}
+
+.donate-steps li p { color: rgba(255,255,255,0.65); font-size: 0.9rem; line-height: 1.65; }
+.donate-steps li p strong { color: #fff; font-weight: 400; }
+
+.donate-note {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+  border-top: 0.5px solid rgba(255,255,255,0.08);
+  padding-top: 1rem;
+  line-height: 1.7;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* JOIN */
+.join { background: var(--white); }
+
+.join-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4.5rem;
+  align-items: start;
+}
+
+.fb-card {
+  background: #f0f2f5;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  border: 0.5px solid rgba(0,0,0,0.07);
+}
+
+.fb-card-header {
+  background: #1877F2;
+  padding: 1.4rem 1.65rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.fb-avatar {
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.22);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 700;
+  font-family: 'Crimson Pro', serif;
+  flex-shrink: 0;
+}
+
+.fb-card-name { color: #fff; font-weight: 600; font-size: 0.98rem; font-family: 'Crimson Pro', serif; }
+.fb-card-sub { color: rgba(255,255,255,0.65); font-size: 0.8rem; font-family: 'Crimson Pro', serif; }
+
+.fb-card-body { padding: 1.4rem 1.65rem; }
+
+.fb-post {
+  background: #fff;
+  border-radius: 0.7rem;
+  padding: 0.95rem 1.15rem;
+  margin-bottom: 0.7rem;
+  border: 0.5px solid rgba(0,0,0,0.05);
+}
+
+.fb-post-text {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: 0.92rem;
+  color: #1c1e21;
+  line-height: 1.65;
+  margin-bottom: 0.55rem;
+}
+
+.fb-post-meta { font-size: 0.76rem; color: #65676b; font-family: 'Crimson Pro', serif; }
+
+.fb-actions {
+  display: flex;
+  gap: 0.45rem;
+  margin-top: 0.9rem;
+}
+
+.fb-btn {
+  flex: 1;
+  padding: 0.48rem;
+  border: none;
+  background: #e4e6eb;
+  border-radius: 0.45rem;
+  font-size: 0.8rem;
+  color: #4b4f56;
+  cursor: pointer;
+  font-family: 'Crimson Pro', serif;
+  transition: background 0.15s;
+}
+.fb-btn:hover { background: #d8dadf; }
+.fb-btn.primary-fb { background: #1877F2; color: #fff; }
+.fb-btn.primary-fb:hover { background: #166FE5; }
+
+.join-content { padding-top: 0.5rem; }
+
+.member-perks { list-style: none; display: flex; flex-direction: column; gap: 0.9rem; margin-top: 1.8rem; }
+
+.perk {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 1rem 1.2rem;
+  background: var(--cream);
+  border-radius: 0.75rem;
+  border: 0.5px solid var(--border);
+}
+
+.perk-icon { font-size: 1.25rem; flex-shrink: 0; margin-top: 1px; }
+
+.perk-ne {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: 0.96rem;
+  color: var(--ink);
+  margin-bottom: 0.08rem;
+}
+
+.perk-en { font-size: 0.8rem; color: var(--ink-soft); font-style: italic; }
+
+/* VALUES */
+.values {
+  background: var(--red);
+  color: #fff;
+  text-align: center;
+  padding: 5rem 3.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.values::before {
+  content: 'नेपाल';
+  position: absolute;
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: 18vw;
+  color: rgba(255,255,255,0.04);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.values-inner { position: relative; z-index: 1; }
+.values .eyebrow { color: rgba(255,255,255,0.55); }
+.values .heading-ne { color: #fff; margin: 0 auto 0.4rem; }
+.values .heading-en { color: rgba(255,255,255,0.42); }
+
+.values-grid {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.value-item { max-width: 180px; }
+.value-icon { font-size: 2rem; margin-bottom: 0.65rem; }
+.value-ne { font-family: 'Tiro Devanagari Nepali', serif; font-size: 1.08rem; color: #fff; margin-bottom: 0.15rem; }
+.value-en { font-size: 0.8rem; color: rgba(255,255,255,0.5); font-style: italic; }
+
+/* FOOTER */
+footer {
+  background: #0D0B08;
+  padding: 3.5rem 3.5rem 2rem;
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 0.5px solid rgba(255,255,255,0.07);
+}
+
+.footer-brand-ne { font-family: 'Tiro Devanagari Nepali', serif; font-size: 1.25rem; color: #fff; margin-bottom: 0.25rem; }
+.footer-brand-en { font-size: 0.8rem; color: rgba(255,255,255,0.3); font-style: italic; margin-bottom: 1rem; }
+.footer-desc { font-family: 'Tiro Devanagari Nepali', serif; font-size: 0.88rem; color: rgba(255,255,255,0.38); line-height: 1.75; }
+
+.footer-col-title { font-family: 'DM Mono', monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.28); margin-bottom: 1rem; }
+
+.footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+.footer-links a { text-decoration: none; font-family: 'Tiro Devanagari Nepali', serif; font-size: 0.9rem; color: rgba(255,255,255,0.45); transition: color 0.2s; }
+.footer-links a:hover { color: var(--red-muted); }
+
+.footer-fb-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: #1877F2;
+  color: #fff;
+  padding: 0.65rem 1.4rem;
+  border-radius: 2rem;
+  font-size: 0.88rem;
+  text-decoration: none;
+  font-family: 'Tiro Devanagari Nepali', serif;
+  transition: opacity 0.2s;
+  margin-top: 0.5rem;
+}
+.footer-fb-btn:hover { opacity: 0.85; }
+
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+.footer-bottom p { font-size: 0.76rem; color: rgba(255,255,255,0.18); font-family: 'Crimson Pro', serif; }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(26px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge { animation: fadeUp 0.5s 0.1s ease both; }
+.hero h1 { animation: fadeUp 0.6s 0.22s ease both; }
+.hero-sub { animation: fadeUp 0.6s 0.36s ease both; }
+.hero-en { animation: fadeUp 0.6s 0.42s ease both; }
+.hero-actions { animation: fadeUp 0.6s 0.5s ease both; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 1rem 1.5rem; }
+  .nav-links { display: none; }
+  section { padding: 4rem 1.5rem; }
+  .about { grid-template-columns: 1fr; }
+  .about-card-stack { height: 210px; }
+  .steps { grid-template-columns: 1fr; gap: 1.5rem; }
+  .steps::before { display: none; }
+  .step { text-align: left; display: flex; gap: 1.2rem; padding: 0; }
+  .step-num { flex-shrink: 0; margin: 0; }
+  .donate-layout { grid-template-columns: 1fr; }
+  .donate-categories { grid-template-columns: 1fr 1fr; }
+  .join-layout { grid-template-columns: 1fr; }
+  .values-grid { gap: 1.75rem; }
+  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+  .hero { padding: 6rem 1.5rem 3rem; }
+  .hero-scroll-hint { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <svg class="nav-flag" viewBox="0 0 26 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,0 21,10 0,20" fill="#C0392B" stroke="#003893" stroke-width="1.4"/>
+      <polygon points="0,11 17,21 0,32" fill="#C0392B" stroke="#003893" stroke-width="1.4"/>
+    </svg>
+    <div class="nav-name">
+      SAS Charity Nepal
+      <span>दयाको साना कदम</span>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">हाम्रोबारे</a></li>
+    <li><a href="#donate">दान गर्नुस्</a></li>
+    <li><a href="#join">सामेल हुनुस्</a></li>
+    <li>
+      <a href="https://facebook.com" target="_blank" class="nav-fb">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Follow गर्नुस्
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg-pattern"></div>
+  <svg class="hero-mandala" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="200" cy="200" r="190" stroke="white" stroke-width="1"/>
+    <circle cx="200" cy="200" r="150" stroke="white" stroke-width="1"/>
+    <circle cx="200" cy="200" r="110" stroke="white" stroke-width="1"/>
+    <circle cx="200" cy="200" r="70" stroke="white" stroke-width="1"/>
+    <circle cx="200" cy="200" r="30" stroke="white" stroke-width="1"/>
+    <line x1="200" y1="10" x2="200" y2="390" stroke="white" stroke-width="0.5"/>
+    <line x1="10" y1="200" x2="390" y2="200" stroke="white" stroke-width="0.5"/>
+    <line x1="65" y1="65" x2="335" y2="335" stroke="white" stroke-width="0.5"/>
+    <line x1="335" y1="65" x2="65" y2="335" stroke="white" stroke-width="0.5"/>
+    <polygon points="200,18 213,60 168,35" fill="white" fill-opacity="0.35"/>
+    <polygon points="200,382 187,340 232,365" fill="white" fill-opacity="0.35"/>
+    <polygon points="18,200 60,187 35,232" fill="white" fill-opacity="0.35"/>
+    <polygon points="382,200 340,213 365,168" fill="white" fill-opacity="0.35"/>
+  </svg>
+
+  <div class="hero-content">
+    <div class="hero-badge">🇳🇵 नेपाली सामाजिक पहल — Nepali Grassroots Initiative</div>
+    <h1>सानो कदम,<br><span class="accent">ठूलो परिवर्तन</span></h1>
+    <p class="hero-sub">दयाले संसार बदल्छ। पैसा होइन — मान्छे चाहिन्छ।</p>
+    <p class="hero-en">Compassion changes the world. Not money — people.</p>
+    <div class="hero-actions">
+      <a href="https://facebook.com" target="_blank" class="btn-fb">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook मा Follow गर्नुस्
+      </a>
+      <a href="#donate" class="btn-ghost">वस्तु दान गर्नुस् ↓</a>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">SCROLL</div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div>
+    <div class="about-card-stack">
+      <div class="about-card">
+        <div class="about-card-icon">🏔️</div>
+        <div class="about-card-ne">नेपालबाट, मनबाट</div>
+        <div class="about-card-en">From Nepal, from the heart</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🤝</div>
+        <div class="about-card-ne">पैसा होइन, वस्तु र दया</div>
+        <div class="about-card-en">Not money — goods and kindness</div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">💛</div>
+        <div class="about-card-ne">समुदाय नै शक्ति हो</div>
+        <div class="about-card-en">Community is our strength</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="eyebrow">हाम्रोबारे — About</div>
+    <h2 class="heading-ne">हामी को हौं?</h2>
+    <p class="heading-en">Who we are</p>
+    <p class="body-text">SAS Charity एक नेपाली स्वयंसेवी पहल हो। हामी पैसा संकलन गर्दैनौं — हामी वस्तु, समय, र दयाको आदानप्रदान गर्छौं। Facebook मार्फत जोडिएको यो समुदायले शान्ति र खुशी फैलाउँछ।</p>
+    <br>
+    <p class="body-text" style="font-style:italic; color:var(--ink-soft); font-size:0.93rem;">SAS Charity is a Nepali volunteer initiative. We don't collect money — we share goods, time, and compassion through our Facebook community to spread peace and happiness.</p>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="how-header">
+    <div class="eyebrow">प्रक्रिया — How it works</div>
+    <h2 class="heading-ne">यसरी काम गर्छौं</h2>
+    <p class="heading-en">Three simple steps to be part of the change</p>
+  </div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">१</div>
+      <div>
+        <h3>Follow गर्नुस्</h3>
+        <div class="step-en">Follow on Facebook</div>
+        <p>हाम्रो Facebook पेजमा Follow गर्नुस् र यात्रामा सामेल हुनुस्। अपडेट, कथाहरू, र दान गर्ने अवसरहरू सिधै पाउनुस्।</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">२</div>
+      <div>
+        <h3>वस्तु दिनुस्</h3>
+        <div class="step-en">Donate goods</div>
+        <p>लुगा, खाना, किताब, खेलौना — जे छ तेस्तै। Facebook मा सम्पर्क गर्नुस्, हामी संग्रह मिलाउँछौं। पैसा कहिल्यै होइन।</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">३</div>
+      <div>
+        <h3>परिवर्तन देख्नुस्</h3>
+        <div class="step-en">See the change</div>
+        <p>हामी Facebook मा सबै अपडेट साझा गर्छौं — कसलाई के मिल्यो, कहाँ पुग्यो। तपाईं यात्राको साक्षी हुनुहुन्छ।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE GOODS -->
+<section class="donate" id="donate">
+  <div class="eyebrow">दान — Donate Goods</div>
+  <h2 class="heading-ne">वस्तु दान गर्नुस्</h2>
+  <p class="heading-en">Donate goods, never money</p>
+  <p class="body-text">तपाईंसँग भएका काम लाग्ने वस्तुहरू दिनुस् — जे चाहिँदैन, त्यो अरूको जीवन बदल्न सक्छ। हामी कहिल्यै पैसा माग्दैनौं।</p>
+
+  <div class="donate-layout">
+    <div>
+      <p style="color:rgba(255,255,255,0.45); font-size:0.85rem; margin-bottom:1.15rem; font-family:'Tiro Devanagari Nepali',serif;">हामीलाई के चाहिन्छ — What we accept</p>
+      <div class="donate-categories">
+        <div class="donate-cat">
+          <div class="donate-cat-icon">👕</div>
+          <h4>लुगाफाटा</h4>
+          <div class="cat-en">Clothes &amp; blankets</div>
+        </div>
+        <div class="donate-cat">
+          <div class="donate-cat-icon">🍚</div>
+          <h4>खाद्यान्न</h4>
+          <div class="cat-en">Food &amp; dry goods</div>
+        </div>
+        <div class="donate-cat">
+          <div class="donate-cat-icon">📚</div>
+          <h4>किताबहरू</h4>
+          <div class="cat-en">Books &amp; stationery</div>
+        </div>
+        <div class="donate-cat">
+          <div class="donate-cat-icon">🧸</div>
+          <h4>खेलौना</h4>
+          <div class="cat-en">Toys &amp; games</div>
+        </div>
+        <div class="donate-cat">
+          <div class="donate-cat-icon">💊</div>
+          <h4>स्वास्थ्य सामग्री</h4>
+          <div class="cat-en">Health &amp; hygiene</div>
+        </div>
+        <div class="donate-cat">
+          <div class="donate-cat-icon">🏠</div>
+          <h4>घरेलु सामान</h4>
+          <div class="cat-en">Household items</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="donate-info">
+      <h3>कसरी दिने? — How to donate</h3>
+      <ul class="donate-steps">
+        <li>
+          <div class="d-num">१</div>
+          <p>हाम्रो <strong>Facebook पेजमा message गर्नुस्</strong> र के दान गर्न चाहनुहुन्छ भन्नुस्।</p>
+        </li>
+        <li>
+          <div class="d-num">२</div>
+          <p>हामी <strong>संग्रह स्थान र समय मिलाउँछौं</strong> — तपाईंलाई सुविधाजनक गरी।</p>
+        </li>
+        <li>
+          <div class="d-num">३</div>
+          <p>वस्तु <strong>सही मानिसकहाँ पुर्‍याइन्छ</strong> र हामी Facebook मा तस्बिर सहित अपडेट दिन्छौं।</p>
+        </li>
+      </ul>
+      <a href="https://facebook.com" target="_blank" class="btn-fb" style="font-size:0.93rem; justify-content:center; display:flex; width:100%;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook मा सम्पर्क गर्नुस्
+      </a>
+      <p class="donate-note">⚠️ हामी पैसा स्वीकार गर्दैनौं। वस्तु दान मात्र।<br>We accept goods only — never money.</p>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN / COMMUNITY -->
+<section class="join" id="join">
+  <div class="join-layout">
+    <div class="fb-card">
+      <div class="fb-card-header">
+        <div class="fb-avatar">S</div>
+        <div>
+          <div class="fb-card-name">SAS Charity Nepal</div>
+          <div class="fb-card-sub">Community · 🌍 सार्वजनिक पेज</div>
+        </div>
+      </div>
+      <div class="fb-card-body">
+        <div class="fb-post">
+          <div class="fb-post-text">आज हामीले १५ परिवारलाई जाडोका लागि कम्बल र लुगा वितरण गर्‍यौं। तपाईंको दानले उनीहरूको जाडो सजिलो बनायो। हजुरलाई धेरै धेरै धन्यवाद! 🙏❤️</div>
+          <div class="fb-post-meta">२ घण्टा पहिले · 🌍 सार्वजनिक</div>
+        </div>
+        <div class="fb-post">
+          <div class="fb-post-text">नयाँ सदस्यहरूलाई स्वागत छ! Follow गर्नुस् र यात्रामा सामेल हुनुस्। सानो कदम, ठूलो परिवर्तन। 💛🇳🇵</div>
+          <div class="fb-post-meta">१ दिन पहिले · 🌍 सार्वजनिक</div>
+        </div>
+        <div class="fb-actions">
+          <button class="fb-btn">👍 मन पर्‍यो</button>
+          <button class="fb-btn">💬 टिप्पणी</button>
+          <button class="fb-btn primary-fb">➕ Follow</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="join-content">
+      <div class="eyebrow">समुदाय — Community</div>
+      <h2 class="heading-ne">यात्रामा सामेल हुनुस्!</h2>
+      <p class="heading-en">Join — no money, just follow and care</p>
+      <p class="body-text">हाम्रो समुदायमा सामेल हुन Facebook Follow मात्र गर्नुस्। यो यात्रा तपाईंको पनि हो।</p>
+
+      <ul class="member-perks">
+        <li class="perk">
+          <div class="perk-icon">📸</div>
+          <div>
+            <div class="perk-ne">दानको यात्रा हेर्नुस्</div>
+            <div class="perk-en">Watch every donation's full journey on Facebook</div>
+          </div>
+        </li>
+        <li class="perk">
+          <div class="perk-icon">🤲</div>
+          <div>
+            <div class="perk-ne">वस्तु दान गर्नुस्</div>
+            <div class="perk-en">Donate goods directly — message us on Facebook</div>
+          </div>
+        </li>
+        <li class="perk">
+          <div class="perk-icon">🗣️</div>
+          <div>
+            <div class="perk-ne">आफ्ना साथीहरूलाई बताउनुस्</div>
+            <div class="perk-en">Share our posts — spread the word in Nepal and beyond</div>
+          </div>
+        </li>
+        <li class="perk">
+          <div class="perk-icon">💛</div>
+          <div>
+            <div class="perk-ne">परिवर्तनको हिस्सा बन्नुस्</div>
+            <div class="perk-en">Be part of something real, Nepali, and meaningful</div>
+          </div>
+        </li>
+      </ul>
+
+      <a href="https://facebook.com" target="_blank" class="btn-fb" style="margin-top:2rem; display:inline-flex;">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        अहिले नै Follow गर्नुस्
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="values-inner">
+    <div class="eyebrow">हाम्रा मूल्यहरू — Our values</div>
+    <h2 class="heading-ne">नेपाली मन, विश्वव्यापी दया</h2>
+    <p class="heading-en">Nepali heart, worldwide compassion</p>
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="value-icon">🙏</div>
+        <div class="value-ne">दया</div>
+        <div class="value-en">Compassion</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🌱</div>
+        <div class="value-ne">सेवा</div>
+        <div class="value-en">Service</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🤝</div>
+        <div class="value-ne">एकता</div>
+        <div class="value-en">Unity</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">💛</div>
+        <div class="value-ne">माया</div>
+        <div class="value-en">Love</div>
+      </div>
+      <div class="value-item">
+        <div class="value-icon">🏔️</div>
+        <div class="value-ne">साहस</div>
+        <div class="value-en">Courage</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-brand-ne">SAS Charity Nepal</div>
+      <div class="footer-brand-en">दयाको साना कदम — Small steps of compassion</div>
+      <p class="footer-desc">Facebook मार्फत जोडिएको नेपाली स्वयंसेवी समुदाय। पैसा होइन — वस्तु र दयाले परिवर्तन।</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Links</div>
+      <ul class="footer-links">
+        <li><a href="#about">हाम्रोबारे</a></li>
+        <li><a href="#how">कसरी काम गर्छौं</a></li>
+        <li><a href="#donate">वस्तु दान</a></li>
+        <li><a href="#join">सामेल हुनुस्</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">हाम्रो समुदाय</div>
+      <p style="color:rgba(255,255,255,0.38); font-size:0.85rem; font-family:'Tiro Devanagari Nepali',serif; line-height:1.75; margin-bottom:1rem;">Follow गर्नुस् र यात्रामा सामेल हुनुस्। पैसा होइन।</p>
+      <a href="https://facebook.com" target="_blank" class="footer-fb-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook Follow गर्नुस्
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© २०२५ SAS Charity Nepal — सबै अधिकार सुरक्षित</p>
+    <p>Made with 💛 in Nepal</p>
+  </div>
+</footer>
+
+</body>
+</html>
