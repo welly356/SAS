@@ -408,7 +408,7 @@ section { padding: 6rem 3.5rem; }
 .heading-en { font-style: italic; font-size: 0.97rem; color: var(--ink-soft); margin-bottom: 1.5rem; }
 .body-text { font-size: 1.02rem; color: var(--ink-mid); line-height: 1.85; max-width: 560px; }
 
-/* ── ABOUT ── */
+/* ── ABOUT / SECTION 2 ── */
 .about {
   background: var(--white);
   display: grid;
@@ -416,25 +416,125 @@ section { padding: 6rem 3.5rem; }
   gap: 5rem;
   align-items: center;
 }
-.about-card-stack { position: relative; height: 340px; }
+
+.about-card-stack {
+  position: relative;
+  width: 100%;
+  max-width: 520px;
+  height: 390px;
+  margin: 0 auto;
+  isolation: isolate;
+  cursor: pointer;
+}
+
 .about-card {
   position: absolute;
+  width: 82%;
+  min-height: 145px;
+  padding: 1.4rem 1.6rem;
   background: var(--cream);
   border: 0.5px solid var(--border);
   border-radius: 1.2rem;
-  padding: 1.4rem 1.6rem;
-  width: 84%;
-  transition: transform 0.4s var(--ease-spring), box-shadow 0.4s;
+  box-shadow: 0 8px 25px rgba(26,18,9,0.06);
+
+  transition:
+    transform 0.55s var(--ease-out),
+    box-shadow 0.45s ease,
+    border-color 0.35s ease;
+
+  will-change: transform;
 }
-.about-card:nth-child(1) { top: 0; left: 0; transform: rotate(-2.5deg); z-index: 1; }
-.about-card:nth-child(2) { top: 70px; left: 7%; z-index: 2; background: var(--red-pale); border-color: var(--red-muted); }
-.about-card:nth-child(3) { top: 155px; left: 3%; z-index: 3; background: var(--white); }
-.about-card-stack:hover .about-card:nth-child(1) { transform: rotate(-4deg) translateX(-8px) translateY(-8px); box-shadow: 8px 8px 30px rgba(26,18,9,0.08); }
-.about-card-stack:hover .about-card:nth-child(2) { transform: rotate(1deg) translateY(-4px); box-shadow: 4px 12px 30px rgba(192,57,43,0.12); }
-.about-card-stack:hover .about-card:nth-child(3) { transform: rotate(-0.5deg) translateY(4px); }
-.about-card-icon { font-size: 1.5rem; margin-bottom: 0.45rem; }
-.about-card-ne { font-family: 'Tiro Devanagari Nepali', serif; font-size: 1rem; color: var(--ink); margin-bottom: 0.15rem; }
-.about-card-en { font-size: 0.8rem; color: var(--ink-soft); font-style: italic; }
+
+.about-card:nth-child(1) {
+  top: 0;
+  left: 3%;
+  z-index: 1;
+  transform: rotate(-4deg);
+}
+
+.about-card:nth-child(2) {
+  top: 75px;
+  left: 10%;
+  z-index: 2;
+  background: var(--red-pale);
+  border-color: var(--red-muted);
+  transform: rotate(2deg);
+}
+
+.about-card:nth-child(3) {
+  top: 150px;
+  left: 6%;
+  z-index: 3;
+  background: var(--white);
+  transform: rotate(-1deg);
+}
+
+/* Hover: spread the cards apart */
+.about-card-stack:hover .about-card:nth-child(1) {
+  transform: translate(-25px, -35px) rotate(-7deg) scale(1.02);
+  box-shadow: 0 18px 40px rgba(26,18,9,0.12);
+  z-index: 3;
+}
+
+.about-card-stack:hover .about-card:nth-child(2) {
+  transform: translate(15px, 0) rotate(2deg) scale(1.04);
+  box-shadow: 0 18px 45px rgba(192,57,43,0.16);
+  border-color: rgba(192,57,43,0.38);
+  z-index: 5;
+}
+
+.about-card-stack:hover .about-card:nth-child(3) {
+  transform: translate(-5px, 40px) rotate(-2deg) scale(1.02);
+  box-shadow: 0 18px 40px rgba(26,18,9,0.12);
+  z-index: 4;
+}
+
+.about-card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.about-card-ne {
+  font-family: 'Tiro Devanagari Nepali', serif;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+}
+
+.about-card-en {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ── MOBILE ── */
+@media (max-width: 900px) {
+  .about {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-card-stack {
+    height: 360px;
+    max-width: 500px;
+  }
+
+  .about-card {
+    width: 88%;
+  }
+
+  .about-card-stack:hover .about-card:nth-child(1) {
+    transform: translate(-10px, -25px) rotate(-5deg);
+  }
+
+  .about-card-stack:hover .about-card:nth-child(2) {
+    transform: translate(8px, 0) rotate(2deg) scale(1.02);
+  }
+
+  .about-card-stack:hover .about-card:nth-child(3) {
+    transform: translate(-5px, 25px) rotate(-2deg);
+  }
+}
 
 /* ── HOW ── */
 .how { background: var(--cream); }
@@ -754,34 +854,55 @@ footer { background: #0D0B08; padding: 3.5rem 3.5rem 2rem; }
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT / SECTION 2 -->
 <section class="about" id="about">
-  <div class="reveal-left">
-    <div class="about-card-stack">
-      <div class="about-card">
-        <div class="about-card-icon">🏔️</div>
-        <div class="about-card-ne">Rooted in Nepal</div>
-        <div class="about-card-en">On-the-ground service, every week</div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">🤝</div>
-        <div class="about-card-ne">People helping people</div>
-        <div class="about-card-en">Volunteers who show up and serve</div>
-      </div>
-      <div class="about-card">
-        <div class="about-card-icon">💛</div>
-        <div class="about-card-ne">Community is our strength</div>
-        <div class="about-card-en">समुदाय नै शक्ति हो</div>
-      </div>
+  <div class="about-card-stack">
+
+    <div class="about-card">
+      <div class="about-card-icon">🏔️</div>
+      <div class="about-card-ne">Rooted in Nepal</div>
+      <div class="about-card-en">On-the-ground service, every week</div>
     </div>
+
+    <div class="about-card">
+      <div class="about-card-icon">🤝</div>
+      <div class="about-card-ne">People helping people</div>
+      <div class="about-card-en">Volunteers who show up and serve</div>
+    </div>
+
+    <div class="about-card">
+      <div class="about-card-icon">💛</div>
+      <div class="about-card-ne">Community is our strength</div>
+      <div class="about-card-en">समुदाय नै शक्ति हो</div>
+    </div>
+
   </div>
-  <div class="reveal-right">
+
+  <div class="about-content reveal-right">
     <div class="eyebrow">About Us</div>
-    <h2 class="heading-ne" style="font-family:'Crimson Pro',serif;">We serve. We show up.</h2>
-    <p class="heading-en">A grassroots Nepali initiative built on action, not words</p>
-    <p class="body-text">SAS Art Of Giving is a volunteer-driven community that goes out into Nepal's most vulnerable communities and delivers real, hands-on service. We feed families, support children's education, provide healthcare essentials, and stand alongside those who have been forgotten.</p>
+    <h2 class="heading-ne" style="font-family:'Crimson Pro',serif;">
+      We serve. We show up.
+    </h2>
+    <p class="heading-en">
+      A grassroots Nepali initiative built on action, not words
+    </p>
+
+    <p class="body-text">
+      SAS Art Of Giving is a volunteer-driven community that goes out
+      into Nepal's most vulnerable communities and delivers real,
+      hands-on service. We feed families, support children's education,
+      provide healthcare essentials, and stand alongside those who
+      have been forgotten.
+    </p>
+
     <br>
-    <p class="body-text" style="font-style:italic; color:var(--ink-soft); font-size:0.93rem;">Born on Facebook, built on compassion. We share every act of service publicly so our community can witness the journey — and be part of it.</p>
+
+    <p class="body-text"
+       style="font-style:italic; color:var(--ink-soft); font-size:0.93rem;">
+      Born on Facebook, built on compassion. We share every act of
+      service publicly so our community can witness the journey —
+      and be part of it.
+    </p>
   </div>
 </section>
 
@@ -1134,7 +1255,7 @@ const sectionObserver = new IntersectionObserver(entries => {
 sections.forEach(s => sectionObserver.observe(s));
 
 // ── TILT EFFECT ON CARDS ──
-document.querySelectorAll('.about-card, .donate-info, .fb-card').forEach(card => {
+document.querySelectorAll('.donate-info, .fb-card').forEach(card => {
   card.addEventListener('mousemove', function(e) {
     const rect = this.getBoundingClientRect();
     const x = (e.clientX - rect.left) / rect.width  - 0.5;
